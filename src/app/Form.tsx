@@ -6,7 +6,7 @@ import { useState } from "react";
 
 import piri from "./piri.webp";
 import Image from "next/image";
-import { LoadingIndicator } from "./LoadingIndicator";
+import { Progress } from "./Progress";
 
 export const Form = () => {
   const [time, setTime] = useState("");
@@ -54,7 +54,7 @@ export const Form = () => {
       >
         Generar
       </button>
-      {isLoading && <LoadingIndicator />}
+      {isLoading && <Progress />}
       {error && (
         <p className="text-center font-semibold text-red-500">
           Algo salió mal, refresca la página e intentalo de nuevo.
