@@ -9,9 +9,10 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 
 export const Time = () => {
-  const [time, setTime] = useState(dayjs().format("HH:mm:ss"));
+  const [time, setTime] = useState("");
 
   useEffect(() => {
+    setTime(dayjs().format("HH:mm:ss"));
     const interval = setInterval(() => {
       setTime(dayjs().format("HH:mm:ss"));
     }, 1000);
