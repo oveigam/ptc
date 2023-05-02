@@ -19,7 +19,7 @@ export default function Home() {
           <Image src={openai} className="h-4 w-4" alt="openai" />
         </div>
       </div>
-      <Time />
+      {/* <Time /> */}
       <Form />
     </main>
   );
