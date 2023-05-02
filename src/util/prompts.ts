@@ -23,7 +23,7 @@ const flavorPrompt = () => {
     case 3:
       return {
         type: "broma",
-        content: "Dime lo tarde que vas a llegar y dímelo haciendo una broma",
+        content: "Dime lo tarde que vas a llegar y dímelo haciendo una broma mezquina",
       };
     case 4:
       return {
