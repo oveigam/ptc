@@ -1,9 +1,6 @@
 import { openai } from "@ptc/util/openai";
 import { basePrompt, userPropmpt } from "@ptc/util/prompts";
-import { ServerRuntime } from "next";
 import { NextResponse } from "next/server";
-
-export const runtime: ServerRuntime = "edge";
 
 export async function POST(request: Request) {
   const { time, now } = (await request.json()) as unknown as { time: string; now: string };
