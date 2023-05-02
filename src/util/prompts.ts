@@ -2,7 +2,7 @@ export const basePrompt = () =>
   "Mi amigo Pirivi es muy impuntual, siempre llega tarde, además le da igual, nunca se disculpa y es un maleducado. El usa su propia zona horaria, llamada Pirivi Time. Quiero que contestes como si fueras el.";
 
 const flavorPrompt = () => {
-  const random = Math.floor(Math.random() * 6);
+  const random = Math.floor(Math.random() * 7);
   switch (random) {
     case 0:
       return {
