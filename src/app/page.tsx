@@ -11,9 +11,9 @@ export default function Home() {
         <h1 className="bg-gradient-to-l from-pink-400 to-slate-600 bg-clip-text text-center text-4xl font-semibold text-transparent lg:text-7xl">
           Pirivi Time Converter
         </h1>
-        <div className="flex justify-end gap-1">
+        <div className="flex justify-end items-center gap-1">
           <h2 className="text-end font-light">powered by OpenAI</h2>
-          <Image src={openai} width={16} height={10} alt="openai" />
+          <Image src={openai} className="w-4 h-4" alt="openai" />
         </div>
       </div>
       <Time />
