@@ -56,8 +56,8 @@ export const Form = () => {
       </button>
       {isLoading && <Progress />}
       {error && (
-        <p className="text-center font-semibold text-red-500">
-          Algo salió mal, refresca la página e intentalo de nuevo.
+        <p className="text-center font-semibold text-red-600">
+          Algo salió mal. Intentalo de nuevo.
         </p>
       )}
       {msg && (
