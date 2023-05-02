@@ -14,6 +14,7 @@ export const Form = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [type, setType] = useState("");
   const [msg, setMsg] = useState("");
+  const [error, setError] = useState(false);
 
   return (
     <>
@@ -30,24 +31,35 @@ export const Form = () => {
         disabled={!time || isLoading}
         className="rounded-lg bg-pink-500 px-4 py-2 text-lg text-white hover:bg-pink-400 active:bg-pink-600 disabled:bg-gray-400"
         onClick={async () => {
-          setIsLoading(true);
-          setMsg("");
-          setType("");
-          const { type, message } = (await fetch(getApiUrl("/generate"), {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ time, now: dayjs().format("HH:mm") }),
-          }).then((r) => r.json())) as unknown as { type: string; message: string };
-          setIsLoading(false);
-          setMsg(message);
-          setType(type);
+          try {
+            setError(false);
+            setIsLoading(true);
+            setMsg("");
+            setType("");
+            const { type, message } = (await fetch(getApiUrl("/generate"), {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ time, now: dayjs().format("HH:mm") }),
+            }).then((r) => r.json())) as unknown as { type: string; message: string };
+            setIsLoading(false);
+            setMsg(message);
+            setType(type);
+          } catch (error) {
+            setError(true);
+            setIsLoading(false);
+          }
         }}
       >
         Generar
       </button>
       {isLoading && <Loading />}
+      {error && (
+        <p className="text-center font-semibold text-red-500">
+          Algo salió mal, refresca la página e intentalo de nuevo.
+        </p>
+      )}
       {msg && (
         <>
           <div className="flex flex-col items-center justify-center gap-4 px-2 lg:flex-row">
