@@ -7,7 +7,7 @@ export async function POST(request: Request) {
 
   const { type, content } = userPropmpt(time, now);
 
-  console.log(type, content);
+  console.log(type);
 
   const chat = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
