@@ -71,7 +71,7 @@ export const Form = () => {
             </div>
             <Image src={piri} alt="pirivi" />
           </div>
-          <h3 className="invisible">{type}</h3>
+          <h3 className="text-slate-50">{type}</h3>
         </>
       )}
     </>
