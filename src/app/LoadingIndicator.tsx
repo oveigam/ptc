@@ -1,6 +1,6 @@
 "use client";
 
-export const Loading = () => {
+export const LoadingIndicator = () => {
   return (
     <div role="status">
       <svg
