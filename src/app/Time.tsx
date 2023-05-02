@@ -5,13 +5,14 @@ import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 import { useEffect, useState } from "react";
 
+dayjs.extend(utc);
+dayjs.extend(timezone);
+
 export const Time = () => {
-  const [time, setTime] = useState("");
+  const [time, setTime] = useState(dayjs().format("HH:mm:ss"));
+  const [tz] = useState(dayjs.tz.guess());
 
   useEffect(() => {
-    dayjs.extend(utc);
-    dayjs.extend(timezone);
-    setTime(dayjs().format("HH:mm:ss"));
     const interval = setInterval(() => {
       setTime(dayjs().format("HH:mm:ss"));
     }, 1000);
@@ -25,7 +26,7 @@ export const Time = () => {
     <h2 className="text-center text-lg font-semibold lg:text-xl">
       La hora actual es{" "}
       <span className="inline-block w-24 text-center font-bold text-pink-400">{time}</span> en{" "}
-      <span className="text-pink-400">({dayjs.tz.guess()})</span>
+      <span className="text-pink-400">({tz})</span>
     </h2>
   );
 };
